@@ -1,4 +1,4 @@
-import { ASTElement, compile } from 'vue-template-compiler';
+import { ASTElement, compile } from 'vue-template-compiler/build';
 
 import { AbstractSourceParser } from './AbstractSourceParser.js';
 import { SlotParser } from './SlotParser.js';
@@ -118,7 +118,7 @@ export class MarkupTemplateParser extends AbstractSourceParser<Parser.Source, nu
 
   parse() {
     if (!this.features.includes(Feature.slots)
-        && !this.features.includes(Feature.events)) {
+      && !this.features.includes(Feature.events)) {
       return;
     }
 

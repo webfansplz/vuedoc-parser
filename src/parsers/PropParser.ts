@@ -171,6 +171,20 @@ export class PropParser extends AbstractExpressionParser {
     this.parseEntry(entry, node, name);
   }
 
+  parseDefinePropsCall(node) {
+    const param = node.typeParameters.params[0];
+
+    if (param.type === Syntax.TSTypeLiteral) {
+      this.parseTSTypeLiteral(param);
+
+      for (const property of param.members) {
+        this.defaultsProperties[property.key.name] = property;
+      }
+
+      this.parse(node);
+    }
+  }
+
   parseWithDefaultsCall(node) {
     if (node.arguments[0]?.type === Syntax.CallExpression) {
       const defaultsNode = node.arguments[1];

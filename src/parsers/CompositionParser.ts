@@ -280,7 +280,6 @@ export class CompositionParser extends ScriptParser {
             this.parsers.props.sync().parseWithDefaultsCall(node);
           }
           break;
-
         case 'expose':
         case 'defineExpose':
           if (node.arguments.length) {
@@ -295,7 +294,9 @@ export class CompositionParser extends ScriptParser {
           break;
 
         default:
-          if (CompositionParser.isComponentCallExpression(node)) {
+          if (node.callee.name === 'defineProps' && this.features.includes(Feature.props) && node.typeParameters) {
+            this.parsers.props.sync().parseDefinePropsCall(node);
+          } else if (CompositionParser.isComponentCallExpression(node)) {
             this.parseExportDefaultDeclaration(node.arguments[0] || node);
           } else if (this.hasLeftSidePart(node)) {
             this.parseCompositionFeature(node.callee.name, node);

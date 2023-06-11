@@ -1,4 +1,4 @@
-import { parseComponent } from 'vue-template-compiler';
+import { parseComponent } from 'vue-template-compiler/build';
 import { Loader } from '../lib/Loader.js';
 import { Loader as LoaderNS } from '../../types/Loader.js';
 
