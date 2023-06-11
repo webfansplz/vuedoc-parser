@@ -1,4 +1,4 @@
-import { ASTElement, compile } from 'vue-template-compiler/build';
+import { ASTElement, compile } from 'vue-template-compiler/build.js';
 
 import { AbstractSourceParser } from './AbstractSourceParser.js';
 import { SlotParser } from './SlotParser.js';
