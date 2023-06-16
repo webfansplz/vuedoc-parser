@@ -1,7 +1,7 @@
 import { AbstractCategorizeEntry } from './AbstractCategorizeEntry.js';
 import { Type } from '../lib/Enum.js';
 import { Value } from './Value.js';
-import { toKebabCase } from '@b613/utils/lib/string.js';
+import { toKebabCase } from '../utils/string.js';
 import { Parser } from '../../types/Parser.js';
 import { Entry } from '../../types/Entry.js';
 

@@ -1,4 +1,4 @@
-import { get } from '@b613/utils/lib/object.js';
+import { get } from '../utils/object.js';
 import { Parser } from '../../types/Parser.js';
 import { Value } from '../entity/Value.js';
 import { Syntax } from './Enum.js';

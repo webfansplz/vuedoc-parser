@@ -1,6 +1,6 @@
 import { Options } from './ScriptParser.js';
 import { CompositionParser } from './CompositionParser.js';
-import { clear } from '@b613/utils/lib/object.js';
+import { clear } from '../utils/object.js';
 import { Syntax } from '../lib/Enum.js';
 import { Parser } from '../../types/Parser.js';
 import { File } from '../../types/FileSystem.js';

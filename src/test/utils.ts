@@ -1,6 +1,6 @@
 import { parseComponent } from '../index.js';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { merge } from '@b613/utils/lib/object.js';
+import { merge } from '../utils/object.js';
 
 export const ComponentTestCase = ({ name, description, only = false, expected, options }) => {
   const title = description ? `${name}: ${description}` : name;

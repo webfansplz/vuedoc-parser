@@ -1,4 +1,3 @@
-import { PropType } from '@b613/utils/typings';
 import { ParseResult } from '@babel/parser';
 import { ImportResolver } from './ImportResolver';
 import { File as FileSystemFile } from './FileSystem';
@@ -6,6 +5,8 @@ import { Loader } from './Loader';
 import { Entry } from './Entry';
 
 import * as Babel from '@babel/types';
+
+type PropType<TObj, TProp extends keyof TObj> = TObj[TProp];
 
 export namespace Parser {
   type FilenameOptions = {

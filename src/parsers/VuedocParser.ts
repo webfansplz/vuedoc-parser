@@ -7,7 +7,7 @@ import { NameEntry } from '../entity/NameEntry.js';
 import { Composition } from '../lib/Composition.js';
 import { Feature, Features, DEFAULT_IGNORED_VISIBILITIES, TypedocTag, JSDocTag, FeatureEvent } from '../lib/Enum.js';
 import { Loader as LoaderNS } from '../../types/Loader.js';
-import { clear, merge } from '@b613/utils/lib/object.js';
+import { clear, merge } from '../utils/object.js';
 import { RegisterFactory, ScriptRegisterParser } from './ScriptRegisterParser.js';
 
 import { FS, ParsingError } from '../lib/FS.js';

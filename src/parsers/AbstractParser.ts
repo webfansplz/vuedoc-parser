@@ -1,15 +1,15 @@
 import { RestValue } from '../entity/RestValue.js';
 import { Value, generateUndefineValue, generateNullGenerator, generateObjectGenerator, generateArrayGenerator } from '../entity/Value.js';
 import { Syntax, Type, TypeList, CompositionTypes, Feature, CompositionFeature } from '../lib/Enum.js';
-import { clear, get } from '@b613/utils/lib/object.js';
+import { clear, get } from '../utils/object.js';
 import { Entry } from '../../types/Entry.js';
 import { Parser } from '../../types/Parser.js';
 import { FileSystem } from '../../types/FileSystem.js';
 import { Composition } from '../lib/Composition.js';
-import { PropType } from '@b613/utils/typings.js';
 import { DTS } from '../lib/DTS.js';
-
 import * as Babel from '@babel/types';
+
+type PropType<TObj, TProp extends keyof TObj> = TObj[TProp];
 
 export type CompositionValueOptions = Pick<Babel.VariableDeclarator, 'init'> & {
   key?: string;
@@ -249,37 +249,37 @@ export class AbstractParser<Source extends Parser.Source, Root> {
   /* istanbul ignore next */
   /* eslint-disable no-unused-vars */
   /* eslint-disable class-methods-use-this */
-  parseFunctionDeclaration(_node: Babel.FunctionDeclaration) {}
+  parseFunctionDeclaration(_node: Babel.FunctionDeclaration) { }
 
   /* istanbul ignore next */
   /* eslint-disable no-unused-vars */
   /* eslint-disable class-methods-use-this */
-  parseEntryComment(_entry: Entry.Type, _node) {}
+  parseEntryComment(_entry: Entry.Type, _node) { }
 
   /* istanbul ignore next */
   /* eslint-disable no-unused-vars */
   /* eslint-disable class-methods-use-this */
-  parseArrayExpression(_node: Babel.ArrayExpression) {}
+  parseArrayExpression(_node: Babel.ArrayExpression) { }
 
   /* istanbul ignore next */
   /* eslint-disable no-unused-vars */
   /* eslint-disable class-methods-use-this */
-  parseCallExpression(_node: Babel.CallExpression) {}
+  parseCallExpression(_node: Babel.CallExpression) { }
 
   /* istanbul ignore next */
   /* eslint-disable no-unused-vars */
   /* eslint-disable class-methods-use-this */
-  parseFunctionExpression(_node: Babel.FunctionExpression) {}
+  parseFunctionExpression(_node: Babel.FunctionExpression) { }
 
   /* istanbul ignore next */
   /* eslint-disable no-unused-vars */
   /* eslint-disable class-methods-use-this */
-  parseExpressionStatement(_node: Babel.ExpressionStatement) {}
+  parseExpressionStatement(_node: Babel.ExpressionStatement) { }
 
   /* istanbul ignore next */
   /* eslint-disable no-unused-vars */
   /* eslint-disable class-methods-use-this */
-  parseObjectExpression(_node: Babel.ObjectExpression) {}
+  parseObjectExpression(_node: Babel.ObjectExpression) { }
 
   parseObjectProperty(node: Babel.ObjectProperty) {
     this.parse(node.value);
@@ -1506,9 +1506,8 @@ export class AbstractParser<Source extends Parser.Source, Root> {
       return new Value(element.type, value);
     });
 
-    output.raw = `[${
-      output.rawObject.map((ref) => ref.raw).join(',')
-    }]`;
+    output.raw = `[${output.rawObject.map((ref) => ref.raw).join(',')
+      }]`;
 
     return output;
   }

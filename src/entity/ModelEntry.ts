@@ -1,4 +1,4 @@
-import { toKebabCase } from '@b613/utils/lib/string.js';
+import { toKebabCase } from '../utils/string.js';
 import { Entry } from '../../types/Entry.js';
 import { Visibility } from '../lib/Enum.js';
 import { AbstractDecorativeEntry } from './AbstractDecorativeEntry.js';

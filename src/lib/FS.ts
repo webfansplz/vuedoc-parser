@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { FileSystem, Options, File } from '../../types/FileSystem.js';
 import { extname, join } from 'node:path';
 import { parse, ParserPlugin } from '@babel/parser';
-import { merge } from '@b613/utils/lib/object.js';
+import { merge } from '../utils/object.js';
 
 import { ImportResolver } from '../../types/ImportResolver.js';
 import { Loader, LoaderOptions } from './Loader.js';
@@ -162,7 +162,7 @@ function parsePlugins(lang: string, options: Pick<FSOptions, 'jsx'> & { path?: s
   return plugins;
 }
 
-export class ParsingError extends Error {}
+export class ParsingError extends Error { }
 
 export class FS implements FileSystem {
   private options: Options;
